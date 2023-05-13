@@ -30,7 +30,11 @@ const FetchComponent = () => {
     const handleAPI = () => {
         const baseURL = `http://localhost:3000/cars`;
 
-        axios.get(baseURL)
+        axios.get(baseURL, {
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            }
+        })
             .then((response) => {
                 setData(response.data)
                 setIsFetching(true);
